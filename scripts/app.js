@@ -1,3 +1,10 @@
+// Generate Random JavaScript ID
+function generateId() {
+  return (
+    Math.random().toString(36).substring(2) + new Date().getTime().toString(36)
+  );
+}
+
 const getBooks = () => {
   let books;
   if (localStorage.getItem('books') === null) {
@@ -13,14 +20,6 @@ const getBooks = () => {
 
   return books;
 };
-
-function generateId() {
-  return (
-    Math.random().toString(36).substring(2) + new Date().getTime().toString(36)
-  );
-}
-
-console.log(generateId());
 
 const addBookToList = (book) => {
   const bookList = document.getElementById('booklist');
@@ -48,13 +47,9 @@ const addBook = (book) => {
 };
 
 const removeBook = (isbn) => {
-  const books = getBooks();
+  let books = getBooks();
 
-  books.filter((book, index) => {
-    if (book.isbn === isbn) {
-      books.splice(index, 1);
-    }
-  });
+  books = books.filter((book) => book.isbn !== isbn);
 
   localStorage.setItem('books', JSON.stringify(books));
 };

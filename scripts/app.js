@@ -89,7 +89,7 @@ document.getElementById('book-form').addEventListener('submit', (e) => {
   // Get Form Values
   const title = document.getElementById('title').value;
   const author = document.getElementById('author').value;
-  const isbn = document.getElementById('isbn').value;
+  const isbn = generateId();
 
   // Instatiate Books
   const book = {

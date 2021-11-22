@@ -1,7 +1,11 @@
 const getBooks = () => {
   let books;
   if (localStorage.getItem('books') === null) {
-    books = [];
+    books = [
+      { title: 'Book 1', author: 'Temitope Ogunleye', isbn: '3475' },
+      { title: 'Book 2', author: 'Elumelu', isbn: '5687' },
+      { title: 'Anselem', author: 'Elumelu', isbn: '5659' },
+    ];
   } else {
     books = JSON.parse(localStorage.getItem('books'));
   }

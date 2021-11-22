@@ -2,16 +2,25 @@ const getBooks = () => {
   let books;
   if (localStorage.getItem('books') === null) {
     books = [
-      { title: 'Book 1', author: 'Temitope Ogunleye', isbn: '3475' },
-      { title: 'Book 2', author: 'Elumelu', isbn: '5687' },
-      { title: 'Anselem', author: 'Elumelu', isbn: '5659' },
+      { title: 'Book 1', author: 'Temitope Ogunleye', isbn: generateId() },
+      { title: 'Book 2', author: 'Elumelu', isbn: generateId() },
+      { title: 'Anselem', author: 'Elumelu', isbn: generateId() },
     ];
+    localStorage.setItem('books', JSON.stringify(books));
   } else {
     books = JSON.parse(localStorage.getItem('books'));
   }
 
   return books;
 };
+
+function generateId() {
+  return (
+    Math.random().toString(36).substring(2) + new Date().getTime().toString(36)
+  );
+}
+
+console.log(generateId());
 
 const addBookToList = (book) => {
   const bookList = document.getElementById('booklist');

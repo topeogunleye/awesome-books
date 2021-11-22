@@ -50,7 +50,7 @@ const addBook = (book) => {
 const removeBook = (isbn) => {
   const books = getBooks();
 
-  books.forEach((book, index) => {
+  books.filter((book, index) => {
     if (book.isbn === isbn) {
       books.splice(index, 1);
     }

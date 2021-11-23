@@ -65,7 +65,7 @@ class UI {
 
     const div = document.createElement('div');
 
-    div.classList.add('book-item')
+    div.classList.add('book-item');
 
     div.innerHTML = `
       <p>${book.title} by ${book.author}</p>

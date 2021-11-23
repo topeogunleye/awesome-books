@@ -65,11 +65,12 @@ class UI {
 
     const div = document.createElement('div');
 
+    div.classList.add('book-item')
+
     div.innerHTML = `
-      <p>${book.title}</p>
-      <p>${book.author}</p>
-      <p>${book.isbn}</p>
-      <button class="btn delete">Remove Book</button>
+      <p>${book.title} by ${book.author}</p>
+      <p class="d-none">${book.isbn}</p>
+      <button class="btn delete">Remove</button>
       `;
 
     bookList.appendChild(div);

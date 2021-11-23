@@ -1,0 +1,28 @@
+* {
+  box-sizing: border-box;
+}
+
+.main .booklist {
+  border: 1px solid #333;
+  margin: auto 20px;
+  max-width: 100vw;
+}
+.main .booklist .book-item {
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+  padding: 20px;
+  align-items: flex-start;
+}
+.main .book-form {
+  width: 87.5%;
+  margin: auto;
+}
+
+@media (min-width: 768px) {
+  .main .book-form {
+    max-width: 600px;
+  }
+}
+
+/*# sourceMappingURL=styles.css.map */

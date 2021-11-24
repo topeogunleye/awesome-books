@@ -9,6 +9,7 @@
     // margin: 25px auto;
     font-size: 18px;
     line-height: 20px;
+    padding: 20px 0;
 
     .header_toolbar {
       width: 87.5%;
@@ -18,4 +19,21 @@
       align-items: center;
     }
   }
+
+  .date  {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 80px;
+  }
+}
+
+@media (min-width: 960px) {
+  .header_section {
+    .header_section {
+      .header_toolbar {
+        align-items: center;
+      }
+    }
+  }
+
 }

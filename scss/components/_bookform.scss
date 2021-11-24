@@ -1,20 +1,29 @@
 .form {
-  display: grid;
-  place-items: center;
-  height: 100vh;
-  .book-form {
-    width: 87.5%;
-    margin: auto;
+  display: none;
+  &.active {
+    display: grid;
+    place-items: center;
+    padding: 100px 0;
+    .book-form {
+      width: 87.5%;
+      margin: auto;
 
-    .btn-add {
-      float: right;
-      box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.3);
+      .btn-add {
+        float: right;
+        box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.3);
+      }
     }
   }
 }
 
 @media (min-width: 768px) {
-  .book-form {
-    max-width: 600px;
+  .form {
+    display: none;
+    &.active {
+      display: grid;
+      .book-form {
+        max-width: 600px;
+      }
+    }
   }
 }

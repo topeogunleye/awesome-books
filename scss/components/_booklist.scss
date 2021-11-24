@@ -1,24 +1,27 @@
 .main {
-  padding-top: 100px;
   .booklist {
-    margin: auto 20px;
-    max-width: 100vw;
-    height: 100vh;
+    display: none;
+    &.active {
+      display: block;
+      margin: auto 20px;
+      max-width: 100vw;
+      padding: 41px 0;
 
-    .books-container {
-      border: 1px solid #333;
+      .books-container {
+        border: 1px solid #333;
 
-      .book-item {
-        display: flex;
-        justify-content: space-between;
-        margin: auto;
-        padding: 20px;
-        align-items: flex-start;
-        background: #f5deb381;
+        .book-item {
+          display: flex;
+          justify-content: space-between;
+          margin: auto;
+          padding: 20px;
+          align-items: flex-start;
+          background: #f5deb381;
 
-        &:nth-of-type(odd) {
-          background-color: #156575;
-          color: #fff;
+          &:nth-of-type(odd) {
+            background-color: #156575;
+            color: #fff;
+          }
         }
       }
     }

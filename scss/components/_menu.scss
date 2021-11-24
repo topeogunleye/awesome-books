@@ -32,6 +32,7 @@
       height: 100vh;
       overflow: hidden;
       color: white;
+      align-items: flex-start;
 
       /* hide the menu above the screen by default */
       transform: translateY(-100%);

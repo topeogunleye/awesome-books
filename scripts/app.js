@@ -1,3 +1,7 @@
+/* eslint-disable max-classes-per-file */
+/* eslint-disable import/no-unresolved */
+import { DateTime } from 'https://cdn.skypack.dev/luxon@1.25.0';
+
 // Book Class: Represent a Book class
 /* eslint-disable max-classes-per-file */
 class Book {
@@ -13,7 +17,8 @@ class Store {
   // Generate random book
   static generateId() {
     return (
-      Math.random().toString(36).substring(2) + new Date().getTime().toString(36)
+      Math.random().toString(36).substring(2)
+      + new Date().getTime().toString(36)
     );
   }
 
@@ -21,7 +26,11 @@ class Store {
     let books;
     if (localStorage.getItem('books') === null) {
       books = [
-        { title: 'Book 1', author: 'Temitope Ogunleye', isbn: Store.generateId() },
+        {
+          title: 'Book 1',
+          author: 'Temitope Ogunleye',
+          isbn: Store.generateId(),
+        },
         { title: 'Book 2', author: 'Elumelu', isbn: Store.generateId() },
         { title: 'Anselem', author: 'Elumelu', isbn: Store.generateId() },
       ];
@@ -145,34 +154,42 @@ menuLinks.forEach((menuLink) => {
   menuLink.addEventListener('click', toggleHamburger);
 });
 
-
 // Add Highlight to Active Nav Link
 // https://dev.to/areeburrub/change-nav-link-s-style-as-you-scroll-4p62
-const sections = document.querySelectorAll('section');
-console.log(sections)
+const main = document.querySelector('main');
+const sections = main.querySelectorAll('section');
+// console.log(sections);
 
 const navLi = document.querySelectorAll('.navbar ul li a');
 
-window.onscroll = () => {
-  let current = '';
+let current = '';
 
-  sections.forEach((section) => {
-    const sectionTop = section.offsetTop;
-    // console.log(sectionTop)
+navLi.forEach((li) => {
+  li.addEventListener('click', () => {
+    current = li.getAttribute('data-id');
 
-    // eslint-disable-next-line no-restricted-globals
-    if (scrollY >= sectionTop - 60) {
-      current = section.getAttribute('id');
-      console.log(current);
-    }
+    sections.forEach((section) => {
+      section.classList.remove('active');
+
+      if (section.classList.contains(current)) {
+        section.classList.add('active');
+      }
+    });
+
+    navLi.forEach((li) => {
+      li.classList.remove('active');
+
+      if (li.classList.contains(current)) {
+        li.classList.add('active');
+      }
+    });
   });
+});
 
-  navLi.forEach((li) => {
-    // console.log(li);
-    li.classList.remove('active');
+const now = DateTime.local();
+const dateFormatted = now.toFormat("EEEE',' MMMM d',' ha");
+const date = document.querySelector('.date');
 
-    if (li.classList.contains(current)) {
-      li.classList.add('active');
-    }
-  });
-};
+const today = document.createElement('p');
+today.textContent = dateFormatted;
+date.appendChild(today);

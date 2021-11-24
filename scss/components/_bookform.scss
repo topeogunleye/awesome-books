@@ -1,0 +1,20 @@
+.form {
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  .book-form {
+    width: 87.5%;
+    margin: auto;
+
+    .btn-add {
+      float: right;
+      box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.3);
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .book-form {
+    max-width: 600px;
+  }
+}

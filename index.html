@@ -13,34 +13,44 @@
     <title>Awesome Books</title>
   </head>
   <body>
-    <nav>
-      <nav id="navbar" class="header_toolbar">
-        <div class="menu-wrap">
-          <button type="button" class="ham"></button>
-          <div>
-            <div class="navbar right-sidebar justify-content-end">
-              <ul class="d-flex">
-                <li class="m-3">
-                  <a href="#home" class="menuLink home active">List</a>
-                </li>
-                <li class="m-3">
-                  <a href="#portfolio" class="menuLink portfolio">Add book</a>
-                </li>
-                <li class="m-3"><a href="#about" class="menuLink about">Contact</a></li>
-              </ul>
+    <div class="header_section">
+      <header class="header">
+        <nav id="navbar" class="header_toolbar">
+          <a href="#" class="header_logo">Awesome Books</a>
+          <div class="menu-wrap">
+            <button type="button" class="ham"></button>
+            <div>
+              <div class="navbar right-sidebar">
+                <ul>
+                  <li>
+                    <a href="#list-menu" class="menuLink home active list-menu">List</a>
+                  </li>
+                  <li>
+                    <a href="#form-menu" class="menuLink form-menu">Add new</a>
+                  </li>
+                  <li>
+                    <a href="#contact-menu" class="menuLink contact">Contact</a>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
-        </div>
-      </nav>
-    </nav>
-    <div class="main ">
-      <h1 class="display-4 text-center">
+        </nav>
+      </header>
+    </div>
+    <section class="main" id="list-menu">
+      <h1 class="text-center">
         <i class="fas fa-book-open mr-2 text-primary"></i>Awesome Books
       </h1>
 
-      <div class="booklist" id="booklist"></div>
+      <div class="booklist" id="booklist">
+        <div id="books-container" class="books-container"></div>
+      </div>
+    </section>
 
+    <section class="form" id="form-menu">
       <form id="book-form" class="book-form">
+        <h2 class="text-center">Add a new book</h2>
         <div class="form-group">
           <label for="title"></label>
           <input
@@ -62,7 +72,7 @@
 
         <button type="submit" class="btn btn-add btn-success me-3">Add</button>
       </form>
-    </div>
+    </section>
 
     <script src="scripts/app.js"></script>
   </body>

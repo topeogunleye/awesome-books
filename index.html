@@ -8,28 +8,39 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+    <link rel="stylesheet" href="styles/styles.css" />
     <title>Awesome Books</title>
   </head>
   <body>
-    <div class="container">
-      <i class="fas fa-book-open"></i>
-      <h1>Awesome Books</h1>
+    <div class="main mt-4">
+      <h1 class="display-4 text-center">
+        <i class="fas fa-book-open mr-2 text-primary"></i>Awesome Books
+      </h1>
 
-      <div class="booklist" id="booklist">
-        
-      </div>
+      <div class="booklist" id="booklist"></div>
 
-      <form id="book-form">
+      <form id="book-form" class="book-form">
         <div class="form-group">
           <label for="title"></label>
-          <input type="text" id="title" placeholder="Title" />
+          <input
+            type="text"
+            id="title"
+            class="form-control"
+            placeholder="Title"
+          />
         </div>
         <div class="form-group">
           <label for="author"></label>
-          <input type="text" id="author" placeholder="Author" />
+          <input
+            type="text"
+            id="author"
+            class="form-control"
+            placeholder="Author"
+          />
         </div>
 
-        <button type="submit" class="btn btn-add">Add</button>
+        <button type="submit" class="btn btn-add btn-success me-3">Add</button>
       </form>
     </div>
 

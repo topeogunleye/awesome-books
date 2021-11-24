@@ -8,39 +8,29 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./css/bootstrap.min.css" />
-    <link rel="stylesheet" href="styles/styles.css" />
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/styles.css">
     <title>Awesome Books</title>
   </head>
   <body>
     <div class="main mt-4">
-      <h1 class="display-4 text-center">
-        <i class="fas fa-book-open mr-2 text-primary"></i>Awesome Books
-      </h1>
+      <h1 class="text-center"><i class="fas fa-book-open"></i>Awesome Books</h1>
 
-      <div class="booklist" id="booklist"></div>
+      <div class="booklist" id="booklist">
+        
+      </div>
 
       <form id="book-form" class="book-form">
         <div class="form-group">
           <label for="title"></label>
-          <input
-            type="text"
-            id="title"
-            class="form-control"
-            placeholder="Title"
-          />
+          <input type="text" id="title" class="form-control" placeholder="Title" />
         </div>
         <div class="form-group">
           <label for="author"></label>
-          <input
-            type="text"
-            id="author"
-            class="form-control"
-            placeholder="Author"
-          />
+          <input type="text" id="author" class="form-control" placeholder="Author" />
         </div>
 
-        <button type="submit" class="btn btn-add btn-success me-3">Add</button>
+        <button type="submit" class="btn btn-add btn-success ">Add</button>
       </form>
     </div>
 

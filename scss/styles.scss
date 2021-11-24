@@ -14,6 +14,12 @@
       margin: auto;
       padding: 20px;
       align-items: flex-start;
+      background: #f5deb381;
+
+      &:nth-of-type(odd) {
+        background-color: #156575;
+        color: #fff;
+      }
     }
   }
 
@@ -22,7 +28,8 @@
     margin: auto;
 
     .btn-add {
-      margin-left: auto;
+      float: right;
+      box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.3);
     }
   }
 }

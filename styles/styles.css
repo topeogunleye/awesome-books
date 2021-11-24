@@ -13,10 +13,19 @@
   margin: auto;
   padding: 20px;
   align-items: flex-start;
+  background: #f5deb381;
+}
+.main .booklist .book-item:nth-of-type(odd) {
+  background-color: #156575;
+  color: #fff;
 }
 .main .book-form {
   width: 87.5%;
   margin: auto;
+}
+.main .book-form .btn-add {
+  float: right;
+  box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.3);
 }
 
 @media (min-width: 768px) {

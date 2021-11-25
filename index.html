@@ -13,37 +13,167 @@
     <title>Awesome Books</title>
   </head>
   <body>
-    <div class="main mt-4">
-      <h1 class="display-4 text-center">
-        <i class="fas fa-book-open mr-2 text-primary"></i>Awesome Books
-      </h1>
-
-      <div class="booklist" id="booklist"></div>
-
-      <form id="book-form" class="book-form">
-        <div class="form-group">
-          <label for="title"></label>
-          <input
-            type="text"
-            id="title"
-            class="form-control"
-            placeholder="Title"
-          />
-        </div>
-        <div class="form-group">
-          <label for="author"></label>
-          <input
-            type="text"
-            id="author"
-            class="form-control"
-            placeholder="Author"
-          />
-        </div>
-
-        <button type="submit" class="btn btn-add btn-success me-3">Add</button>
-      </form>
+    <div class="header_section">
+      <header class="header bg-light">
+        <nav id="navbar" class="header_toolbar">
+          <a href="#list-menu" class="header_logo">Awesome Books</a>
+          <div class="menu-wrap">
+            <button type="button" class="ham"></button>
+            <div>
+              <div class="navbar right-sidebar">
+                <ul>
+                  <li>
+                    <a
+                      href="#list-menu"
+                      data-id="list-menu"
+                      class="menuLink home active list-menu"
+                      >List</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#form-menu"
+                      data-id="form-menu"
+                      class="menuLink form-menu"
+                      >Add new</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#contact-menu"
+                      data-id="contact-menu"
+                      class="menuLink contact-menu"
+                      >Contact</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </nav>
+        <div class="date bg-dark text-white"></div>
+      </header>
     </div>
+    <main class="main" id="list-menu">
+      <section class="booklist list-menu active" id="booklist">
+        <h1 class="text-center heading1">
+          <i class="fas fa-book-open mr-2 text-primary"></i>Awesome Books
+        </h1>
+        <div id="books-container" class="books-container"></div>
+      </section>
 
-    <script src="scripts/app.js"></script>
+      <section class="form form-menu" id="form-menu">
+        <form id="book-form" class="book-form">
+          <h2 class="text-center">Add a new book</h2>
+          <div class="form-group">
+            <label for="title"></label>
+            <input
+              type="text"
+              id="title"
+              class="form-control"
+              placeholder="Title"
+            />
+          </div>
+          <div class="form-group">
+            <label for="author"></label>
+            <input
+              type="text"
+              id="author"
+              class="form-control"
+              placeholder="Author"
+            />
+          </div>
+
+          <button type="submit" class="btn btn-add btn-success me-3">
+            Add
+          </button>
+        </form>
+      </section>
+
+      <section class="contact contact-menu">
+        <div class="container">
+          <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h1>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos
+            eveniet minus sed dicta vitae vel et sit possimus, dolorem nobis
+            voluptas enim quas cupiditate voluptatem quia quasi libero sapiente
+            architecto!
+          </p>
+          <ul>
+            <li>Our email: mail@mail.com</li>
+            <li>Our phone number: 08183387217</li>
+            <li>Our Address: Streetname 32, 84503 City, Country</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-light text-center text-white fixed-lg-bottom">
+      <!-- Grid container -->
+      <div class="container p-4 pb-0">
+        <!-- Section: Social media -->
+        <section class="mb-4">
+          <!-- Facebook -->
+          <a
+            class="btn btn-primary btn-floating m-1 bg-primary"
+            href="#!"
+            role="button"
+            ><i class="fab fa-facebook-f"></i
+          ></a>
+
+          <!-- Twitter -->
+          <a
+            class="btn btn-primary btn-floating m-1 bg-primary"
+            href="#!"
+            role="button"
+            ><i class="fab fa-twitter"></i
+          ></a>
+
+          <!-- Google -->
+          <a
+            class="btn btn-primary btn-floating m-1 bg-secondary"
+            href="#!"
+            role="button"
+            ><i class="fab fa-google"></i
+          ></a>
+
+          <!-- Instagram -->
+          <a
+            class="btn btn-primary btn-floating m-1 bg-dark"
+            href="#!"
+            role="button"
+            ><i class="fab fa-instagram"></i
+          ></a>
+
+          <!-- Linkedin -->
+          <a
+            class="btn btn-primary btn-floating m-1 bg-primary"
+            href="#!"
+            role="button"
+            ><i class="fab fa-linkedin-in"></i
+          ></a>
+          <!-- Github -->
+          <a
+            class="btn btn-primary btn-floating m-1 bg-dark"
+            href="#!"
+            role="button"
+            ><i class="fab fa-github"></i
+          ></a>
+        </section>
+        <!-- Section: Social media -->
+      </div>
+      <!-- Grid container -->
+
+      <!-- Copyright -->
+      <div class="text-center p-3 bg-dark">
+        © 2020 Copyright:
+        <a class="text-white" href="https://mdbootstrap.com/"
+          >MDBootstrap.com</a
+        >
+      </div>
+      <!-- Copyright -->
+    </footer>
+
+    <script type="module" src="scripts/app.js"></script>
   </body>
 </html>

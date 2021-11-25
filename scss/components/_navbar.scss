@@ -1,0 +1,41 @@
+.header_section {
+  width: 100%;
+  background-color: #fff;
+  padding: 1px;
+  position: sticky;
+  top: 0;
+
+  .header {
+    font-size: 18px;
+    line-height: 20px;
+    padding: 20px 0;
+
+    .header_toolbar {
+      width: 87.5%;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .header_logo {
+        text-decoration: none;
+      }
+    }
+  }
+
+  .date {
+    display: flex;
+    justify-content: flex-end;
+    padding: 20px 100px;
+  }
+}
+
+@media (min-width: 960px) {
+  .header_section {
+    .header_section {
+      .header_toolbar {
+        align-items: center;
+      }
+    }
+  }
+}

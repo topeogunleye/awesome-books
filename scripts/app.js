@@ -1,3 +1,7 @@
+/* eslint-disable max-classes-per-file */
+/* eslint-disable import/no-unresolved */
+import { DateTime } from 'https://cdn.skypack.dev/luxon@1.25.0';
+
 // Book Class: Represent a Book class
 /* eslint-disable max-classes-per-file */
 class Book {
@@ -13,7 +17,8 @@ class Store {
   // Generate random book
   static generateId() {
     return (
-      Math.random().toString(36).substring(2) + new Date().getTime().toString(36)
+      Math.random().toString(36).substring(2)
+      + new Date().getTime().toString(36)
     );
   }
 
@@ -21,7 +26,11 @@ class Store {
     let books;
     if (localStorage.getItem('books') === null) {
       books = [
-        { title: 'Book 1', author: 'Temitope Ogunleye', isbn: Store.generateId() },
+        {
+          title: 'Book 1',
+          author: 'Temitope Ogunleye',
+          isbn: Store.generateId(),
+        },
         { title: 'Book 2', author: 'Elumelu', isbn: Store.generateId() },
         { title: 'Anselem', author: 'Elumelu', isbn: Store.generateId() },
       ];
@@ -61,7 +70,7 @@ class UI {
   }
 
   static addBookToList(book) {
-    const bookList = document.getElementById('booklist');
+    const bookList = document.getElementById('books-container');
 
     const div = document.createElement('div');
 
@@ -125,4 +134,63 @@ document.getElementById('booklist').addEventListener('click', (e) => {
   Store.removeBook(e.target.previousElementSibling.textContent);
 });
 
-// Generate Random JavaScript ID
+// window.addEventListener('DOMContentLoaded', () => {
+// https://codepen.io/ljc-dev/embed/GRoLWxj?height=600&default-tab=js,result&embed-version=2
+// https://dev.to/ljcdev/easy-hamburger-menu-with-js-2do0
+const navbar = document.querySelector('.navbar'); // list
+const ham = document.querySelector('.ham'); // button
+const menuLinks = document.querySelectorAll('.menuLink');
+
+function toggleHamburger() {
+  navbar.classList.toggle('showNav');
+  ham.classList.toggle('showClose');
+}
+
+// toggles hamburger menu in and out when clicking on the hamburger
+ham.addEventListener('click', toggleHamburger);
+
+// toggle when clicking on links
+menuLinks.forEach((menuLink) => {
+  menuLink.addEventListener('click', toggleHamburger);
+});
+
+// Add Highlight to Active Nav Link
+// https://dev.to/areeburrub/change-nav-link-s-style-as-you-scroll-4p62
+const main = document.querySelector('main');
+const sections = main.querySelectorAll('section');
+// console.log(sections);
+
+const navLi = document.querySelectorAll('.navbar ul li a');
+
+let current = '';
+
+navLi.forEach((li) => {
+  li.addEventListener('click', () => {
+    current = li.getAttribute('data-id');
+
+    sections.forEach((section) => {
+      section.classList.remove('active');
+
+      if (section.classList.contains(current)) {
+        section.classList.add('active');
+      }
+    });
+
+    navLi.forEach((li) => {
+      li.classList.remove('active');
+
+      if (li.classList.contains(current)) {
+        li.classList.add('active');
+      }
+    });
+  });
+});
+
+// https://codepen.io/melissamcewen/pen/wvzYeNN?editors=0010
+const now = DateTime.local();
+const dateFormatted = now.toFormat("EEEE',' MMMM d',' ha");
+const date = document.querySelector('.date');
+
+const today = document.createElement('p');
+today.textContent = dateFormatted;
+date.appendChild(today);

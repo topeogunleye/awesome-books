@@ -1,0 +1,9 @@
+.contact {
+  display: none;
+
+  &.active {
+    display: grid;
+    place-items: center;
+    padding: 100px 0;
+  }
+}

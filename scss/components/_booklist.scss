@@ -8,6 +8,10 @@
       max-width: 100vw;
       padding: 41px 0;
 
+      .heading1 {
+        font-size: 20pt;
+      }
+
       .books-container {
         border: 1px solid #333;
 
@@ -23,6 +27,18 @@
             background-color: #156575;
             color: #fff;
           }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .main {
+    .booklist {
+      &.active {
+        .heading1 {
+          font-size: 30pt;
         }
       }
     }

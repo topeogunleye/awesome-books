@@ -6,7 +6,6 @@
   top: 0;
 
   .header {
-    // margin: 25px auto;
     font-size: 18px;
     line-height: 20px;
     padding: 20px 0;
@@ -20,10 +19,10 @@
     }
   }
 
-  .date  {
+  .date {
     display: flex;
     justify-content: flex-end;
-    padding-right: 80px;
+    padding: 20px 100px;
   }
 }
 
@@ -35,5 +34,4 @@
       }
     }
   }
-
 }

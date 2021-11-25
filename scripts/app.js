@@ -186,6 +186,7 @@ navLi.forEach((li) => {
   });
 });
 
+// https://codepen.io/melissamcewen/pen/wvzYeNN?editors=0010
 const now = DateTime.local();
 const dateFormatted = now.toFormat("EEEE',' MMMM d',' ha");
 const date = document.querySelector('.date');

@@ -29,7 +29,7 @@ body {
 .header_section .date {
   display: flex;
   justify-content: flex-end;
-  padding-right: 80px;
+  padding: 20px 100px;
 }
 
 @media (min-width: 960px) {

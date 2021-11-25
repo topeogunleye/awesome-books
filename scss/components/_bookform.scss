@@ -1,9 +1,11 @@
 .form {
   display: none;
+
   &.active {
     display: grid;
     place-items: center;
     padding: 100px 0;
+
     .book-form {
       width: 87.5%;
       margin: auto;
@@ -19,8 +21,10 @@
 @media (min-width: 768px) {
   .form {
     display: none;
+
     &.active {
       display: grid;
+
       .book-form {
         max-width: 600px;
       }

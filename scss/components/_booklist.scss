@@ -1,6 +1,7 @@
 .main {
   .booklist {
     display: none;
+
     &.active {
       display: block;
       margin: auto 20px;

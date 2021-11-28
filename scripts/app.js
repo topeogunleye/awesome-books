@@ -17,8 +17,8 @@ class Store {
   // Generate random book
   static generateId() {
     return (
-      Math.random().toString(36).substring(2)
-      + new Date().getTime().toString(36)
+      Math.random().toString(36).substring(2) +
+      new Date().getTime().toString(36)
     );
   }
 
@@ -69,6 +69,22 @@ class UI {
     books.forEach((book) => UI.addBookToList(book));
   }
 
+  static getTime() {
+    // https://codepen.io/melissamcewen/pen/wvzYeNN?editors=0010
+    const now = DateTime.local();
+    console.log(now);
+    const dateFormatted = now.toFormat("EEEE',' MMMM d',' ha");
+    const date = document.querySelector('.date');
+
+    const today = document.createElement('p');
+    today.textContent = dateFormatted;
+    date.appendChild(today);
+  }
+
+  static toggleHamburger() {
+    
+  }
+
   static addBookToList(book) {
     const bookList = document.getElementById('books-container');
 
@@ -99,8 +115,12 @@ class UI {
   }
 }
 
+// Event: Get Local Time
+document.addEventListener('DOMContentLoaded', UI.getTime);
 // Event: Display Books
 document.addEventListener('DOMContentLoaded', UI.displayBooks);
+
+
 
 // Event: Add a Book
 document.getElementById('book-form').addEventListener('submit', (e) => {
@@ -185,12 +205,3 @@ navLi.forEach((li) => {
     });
   });
 });
-
-// https://codepen.io/melissamcewen/pen/wvzYeNN?editors=0010
-const now = DateTime.local();
-const dateFormatted = now.toFormat("EEEE',' MMMM d',' ha");
-const date = document.querySelector('.date');
-
-const today = document.createElement('p');
-today.textContent = dateFormatted;
-date.appendChild(today);

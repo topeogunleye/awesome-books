@@ -2,6 +2,16 @@
 /* eslint-disable import/no-unresolved */
 import { DateTime } from 'https://cdn.skypack.dev/luxon@1.25.0';
 
+const navbar = document.querySelector('.navbar'); // list
+const ham = document.querySelector('.ham'); // button
+const menuLinks = document.querySelectorAll('.menuLink');
+const main = document.querySelector('main');
+const sections = main.querySelectorAll('section');
+
+const navLi = document.querySelectorAll('.navbar ul li a');
+
+let current = '';
+
 // Book Class: Represent a Book class
 /* eslint-disable max-classes-per-file */
 class Book {
@@ -69,6 +79,45 @@ class UI {
     books.forEach((book) => UI.addBookToList(book));
   }
 
+  static getTime() {
+    // https://codepen.io/melissamcewen/pen/wvzYeNN?editors=0010
+    const now = DateTime.local();
+    console.log(now);
+    const dateFormatted = now.toFormat("EEEE',' MMMM d',' ha");
+    const date = document.querySelector('.date');
+
+    const today = document.createElement('p');
+    today.textContent = dateFormatted;
+    date.appendChild(today);
+  }
+
+  static displayActiveSection(li) {
+    // Display Active Section
+    current = li.getAttribute('data-id');
+
+    sections.forEach((section) => {
+      section.classList.remove('active');
+
+      if (section.classList.contains(current)) {
+        section.classList.add('active');
+      }
+    });
+
+    // Highlight Navbar link of Active Section
+    navLi.forEach((li) => {
+      li.classList.remove('active');
+
+      if (li.classList.contains(current)) {
+        li.classList.add('active');
+      }
+    });
+  }
+
+  static toggleHamburger() {
+    navbar.classList.toggle('showNav');
+    ham.classList.toggle('showClose');
+  }
+
   static addBookToList(book) {
     const bookList = document.getElementById('books-container');
 
@@ -99,6 +148,8 @@ class UI {
   }
 }
 
+// Event: Get Local Time
+document.addEventListener('DOMContentLoaded', UI.getTime);
 // Event: Display Books
 document.addEventListener('DOMContentLoaded', UI.displayBooks);
 
@@ -137,60 +188,17 @@ document.getElementById('booklist').addEventListener('click', (e) => {
 // window.addEventListener('DOMContentLoaded', () => {
 // https://codepen.io/ljc-dev/embed/GRoLWxj?height=600&default-tab=js,result&embed-version=2
 // https://dev.to/ljcdev/easy-hamburger-menu-with-js-2do0
-const navbar = document.querySelector('.navbar'); // list
-const ham = document.querySelector('.ham'); // button
-const menuLinks = document.querySelectorAll('.menuLink');
-
-function toggleHamburger() {
-  navbar.classList.toggle('showNav');
-  ham.classList.toggle('showClose');
-}
 
 // toggles hamburger menu in and out when clicking on the hamburger
-ham.addEventListener('click', toggleHamburger);
+ham.addEventListener('click', UI.toggleHamburger);
 
 // toggle when clicking on links
 menuLinks.forEach((menuLink) => {
-  menuLink.addEventListener('click', toggleHamburger);
+  menuLink.addEventListener('click', UI.toggleHamburger);
 });
 
 // Add Highlight to Active Nav Link
 // https://dev.to/areeburrub/change-nav-link-s-style-as-you-scroll-4p62
-const main = document.querySelector('main');
-const sections = main.querySelectorAll('section');
-// console.log(sections);
-
-const navLi = document.querySelectorAll('.navbar ul li a');
-
-let current = '';
-
 navLi.forEach((li) => {
-  li.addEventListener('click', () => {
-    current = li.getAttribute('data-id');
-
-    sections.forEach((section) => {
-      section.classList.remove('active');
-
-      if (section.classList.contains(current)) {
-        section.classList.add('active');
-      }
-    });
-
-    navLi.forEach((li) => {
-      li.classList.remove('active');
-
-      if (li.classList.contains(current)) {
-        li.classList.add('active');
-      }
-    });
-  });
+  li.addEventListener('click', () => UI.displayActiveSection(li));
 });
-
-// https://codepen.io/melissamcewen/pen/wvzYeNN?editors=0010
-const now = DateTime.local();
-const dateFormatted = now.toFormat("EEEE',' MMMM d',' ha");
-const date = document.querySelector('.date');
-
-const today = document.createElement('p');
-today.textContent = dateFormatted;
-date.appendChild(today);

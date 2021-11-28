@@ -81,8 +81,31 @@ class UI {
     date.appendChild(today);
   }
 
+  static displayActiveSection(li) {
+    // Display Active Section
+    current = li.getAttribute('data-id');
+
+    sections.forEach((section) => {
+      section.classList.remove('active');
+
+      if (section.classList.contains(current)) {
+        section.classList.add('active');
+      }
+    });
+
+    // Highlight Navbar link of Active Section
+    navLi.forEach((li) => {
+      li.classList.remove('active');
+
+      if (li.classList.contains(current)) {
+        li.classList.add('active');
+      }
+    });
+  }
+
   static toggleHamburger() {
-    
+    navbar.classList.toggle('showNav');
+    ham.classList.toggle('showClose');
   }
 
   static addBookToList(book) {
@@ -119,8 +142,6 @@ class UI {
 document.addEventListener('DOMContentLoaded', UI.getTime);
 // Event: Display Books
 document.addEventListener('DOMContentLoaded', UI.displayBooks);
-
-
 
 // Event: Add a Book
 document.getElementById('book-form').addEventListener('submit', (e) => {
@@ -161,17 +182,12 @@ const navbar = document.querySelector('.navbar'); // list
 const ham = document.querySelector('.ham'); // button
 const menuLinks = document.querySelectorAll('.menuLink');
 
-function toggleHamburger() {
-  navbar.classList.toggle('showNav');
-  ham.classList.toggle('showClose');
-}
-
 // toggles hamburger menu in and out when clicking on the hamburger
-ham.addEventListener('click', toggleHamburger);
+ham.addEventListener('click', UI.toggleHamburger);
 
 // toggle when clicking on links
 menuLinks.forEach((menuLink) => {
-  menuLink.addEventListener('click', toggleHamburger);
+  menuLink.addEventListener('click', UI.toggleHamburger);
 });
 
 // Add Highlight to Active Nav Link
@@ -185,23 +201,5 @@ const navLi = document.querySelectorAll('.navbar ul li a');
 let current = '';
 
 navLi.forEach((li) => {
-  li.addEventListener('click', () => {
-    current = li.getAttribute('data-id');
-
-    sections.forEach((section) => {
-      section.classList.remove('active');
-
-      if (section.classList.contains(current)) {
-        section.classList.add('active');
-      }
-    });
-
-    navLi.forEach((li) => {
-      li.classList.remove('active');
-
-      if (li.classList.contains(current)) {
-        li.classList.add('active');
-      }
-    });
-  });
+  li.addEventListener('click', () => UI.displayActiveSection(li));
 });

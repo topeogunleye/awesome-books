@@ -2,6 +2,16 @@
 /* eslint-disable import/no-unresolved */
 import { DateTime } from 'https://cdn.skypack.dev/luxon@1.25.0';
 
+const navbar = document.querySelector('.navbar'); // list
+const ham = document.querySelector('.ham'); // button
+const menuLinks = document.querySelectorAll('.menuLink');
+const main = document.querySelector('main');
+const sections = main.querySelectorAll('section');
+
+const navLi = document.querySelectorAll('.navbar ul li a');
+
+let current = '';
+
 // Book Class: Represent a Book class
 /* eslint-disable max-classes-per-file */
 class Book {
@@ -17,8 +27,8 @@ class Store {
   // Generate random book
   static generateId() {
     return (
-      Math.random().toString(36).substring(2) +
-      new Date().getTime().toString(36)
+      Math.random().toString(36).substring(2)
+      + new Date().getTime().toString(36)
     );
   }
 
@@ -178,9 +188,6 @@ document.getElementById('booklist').addEventListener('click', (e) => {
 // window.addEventListener('DOMContentLoaded', () => {
 // https://codepen.io/ljc-dev/embed/GRoLWxj?height=600&default-tab=js,result&embed-version=2
 // https://dev.to/ljcdev/easy-hamburger-menu-with-js-2do0
-const navbar = document.querySelector('.navbar'); // list
-const ham = document.querySelector('.ham'); // button
-const menuLinks = document.querySelectorAll('.menuLink');
 
 // toggles hamburger menu in and out when clicking on the hamburger
 ham.addEventListener('click', UI.toggleHamburger);
@@ -192,14 +199,6 @@ menuLinks.forEach((menuLink) => {
 
 // Add Highlight to Active Nav Link
 // https://dev.to/areeburrub/change-nav-link-s-style-as-you-scroll-4p62
-const main = document.querySelector('main');
-const sections = main.querySelectorAll('section');
-// console.log(sections);
-
-const navLi = document.querySelectorAll('.navbar ul li a');
-
-let current = '';
-
 navLi.forEach((li) => {
   li.addEventListener('click', () => UI.displayActiveSection(li));
 });
